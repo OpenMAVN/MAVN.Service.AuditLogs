@@ -18,8 +18,4 @@
     <ProjectReference Include="..\MAVN.Service.AuditLogs.Domain\MAVN.Service.AuditLogs.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
-
 </Project>

@@ -1,13 +1,16 @@
 ﻿using System.Data.Common;
 using JetBrains.Annotations;
 using Lykke.Common.MsSql;
+using MAVN.Service.AuditLogs.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MAVN.Service.AuditLogs.MsSqlRepositories
 {
     public class AuditLogsContext : MsSqlContext
     {
-        private const string Schema = ""; // TODO put proper schema name here
+        private const string Schema = "audit_logs";
+
+        public DbSet<AuditLogEntity> AuditLogs { get; set; }
 
         // empty constructor needed for EF migrations
         [UsedImplicitly]
@@ -34,7 +37,9 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories
 
         protected override void OnLykkeModelCreating(ModelBuilder modelBuilder)
         {
-            // TODO put db entities models building code here
+            modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.ActionType).IsUnique(false);
+            modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.AdminUserId).IsUnique(false);
+            modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.Date).IsUnique(false);
         }
     }
 }

@@ -1,4 +1,7 @@
-using AutoMapper;
+﻿using AutoMapper;
+using MAVN.Service.AuditLogs.Client.Models.Requests;
+using MAVN.Service.AuditLogs.Client.Models.Responses;
+using MAVN.Service.AuditLogs.Domain.Models;
 
 namespace MAVN.Service.AuditLogs
 {
@@ -6,7 +9,8 @@ namespace MAVN.Service.AuditLogs
     {
         public AutoMapperProfile()
         {
-            // TODO - add mappings here...
+            CreateMap<AuditLog, AuditLogResponse>();
+            CreateMap<AddAuditLogRequest, AuditLog>();
         }
     }
 }

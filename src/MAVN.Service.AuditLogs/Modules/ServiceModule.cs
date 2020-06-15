@@ -3,6 +3,8 @@ using JetBrains.Annotations;
 using Lykke.Sdk;
 using Lykke.Sdk.Health;
 using Lykke.SettingsReader;
+using MAVN.Service.AuditLogs.Domain.Services;
+using MAVN.Service.AuditLogs.DomainServices.Services;
 using MAVN.Service.AuditLogs.Services;
 using MAVN.Service.AuditLogs.Settings;
 
@@ -20,8 +22,6 @@ namespace MAVN.Service.AuditLogs.Modules
 
         protected override void Load(ContainerBuilder builder)
         {
-            // NOTE: Do not register entire settings in container, pass necessary settings to services which requires them
-
             builder.RegisterType<HealthService>()
                 .As<IHealthService>()
                 .SingleInstance();
@@ -35,7 +35,9 @@ namespace MAVN.Service.AuditLogs.Modules
                 .AutoActivate()
                 .SingleInstance();
 
-            // TODO: Add your dependencies here
+            builder.RegisterType<AuditLogsService>()
+                .As<IAuditLogsService>()
+                .SingleInstance();
         }
     }
 }
