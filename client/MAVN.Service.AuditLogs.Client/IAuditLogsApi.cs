@@ -2,7 +2,6 @@
 using JetBrains.Annotations;
 using MAVN.Service.AuditLogs.Client.Models.Requests;
 using MAVN.Service.AuditLogs.Client.Models.Responses;
-using Microsoft.AspNetCore.Mvc;
 using Refit;
 
 namespace MAVN.Service.AuditLogs.Client
@@ -18,14 +17,14 @@ namespace MAVN.Service.AuditLogs.Client
         /// Gets paged audit logs
         /// </summary>
         /// <returns><see cref="GetAuditLogsResponse"/></returns>
-        [HttpGet("/api/auditlogs")]
+        [Get("/api/auditlogs")]
         Task<GetAuditLogsResponse> GetAuditLogsAsync([Query] GetAuditLogsRequest request);
 
         /// <summary>
         /// Add audit log
         /// </summary>
         /// <returns></returns>
-        [HttpPost("/api/auditlogs")]
+        [Post("/api/auditlogs")]
         Task AddAuditLogAsync([Body] AddAuditLogRequest request);
     }
 }

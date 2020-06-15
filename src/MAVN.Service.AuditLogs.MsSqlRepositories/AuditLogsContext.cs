@@ -37,7 +37,7 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories
 
         protected override void OnLykkeModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.Timestamp).IsUnique(false);
+            modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.ActionType).IsUnique(false);
             modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.AdminUserId).IsUnique(false);
         }
     }
