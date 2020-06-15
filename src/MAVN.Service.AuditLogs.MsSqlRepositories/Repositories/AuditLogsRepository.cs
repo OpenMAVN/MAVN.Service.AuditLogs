@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Lykke.Common.MsSql;
 using MAVN.Service.AuditLogs.Domain.Models;
-using MAVN.Service.AuditLogs.Domain.Models.Enums;
 using MAVN.Service.AuditLogs.Domain.Repositories;
 using MAVN.Service.AuditLogs.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +29,7 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories.Repositories
             }
         }
 
-        public async Task<(List<AuditLog> Logs, int Count)> GetAsync(Guid? adminId, ActionType? actionType, DateTime? fromDate, DateTime? toDate, int skip, int take)
+        public async Task<(List<AuditLog> Logs, int Count)> GetAsync(Guid? adminId, string actionType, DateTime? fromDate, DateTime? toDate, int skip, int take)
         {
             using (var context = _contextFactory.CreateDataContext())
             {
@@ -44,8 +43,8 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories.Repositories
                 if (adminId.HasValue)
                     query = query.Where(x => x.AdminUserId == adminId.Value);
 
-                if (actionType.HasValue)
-                    query = query.Where(x => x.ActionType == actionType.Value);
+                if (!string.IsNullOrEmpty(actionType))
+                    query = query.Where(x => x.ActionType == actionType);
 
                 var count = await query.CountAsync();
 

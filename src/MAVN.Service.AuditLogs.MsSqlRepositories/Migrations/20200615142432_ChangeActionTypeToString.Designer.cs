@@ -4,14 +4,16 @@ using MAVN.Service.AuditLogs.MsSqlRepositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MAVN.Service.AuditLogs.MsSqlRepositories.Migrations
 {
     [DbContext(typeof(AuditLogsContext))]
-    partial class AuditLogsContextModelSnapshot : ModelSnapshot
+    [Migration("20200615142432_ChangeActionTypeToString")]
+    partial class ChangeActionTypeToString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

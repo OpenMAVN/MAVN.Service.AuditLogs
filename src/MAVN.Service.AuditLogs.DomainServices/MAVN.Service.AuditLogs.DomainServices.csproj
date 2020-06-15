@@ -5,8 +5,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="Lykke.RabbitMqBroker" Version="7.13.2" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\contract\MAVN.Service.AuditLogs.Contract\MAVN.Service.AuditLogs.Contract.csproj" />
     <ProjectReference Include="..\MAVN.Service.AuditLogs.Domain\MAVN.Service.AuditLogs.Domain.csproj" />
   </ItemGroup>
 </Project>

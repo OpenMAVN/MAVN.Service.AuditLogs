@@ -7,5 +7,7 @@ namespace MAVN.Service.AuditLogs.Settings
     public class AuditLogsSettings
     {
         public DbSettings Db { get; set; }
+
+        public RabbitMqSettings Rabbit { get; set; }
     }
 }

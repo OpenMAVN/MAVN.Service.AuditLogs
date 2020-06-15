@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MAVN.Service.AuditLogs.Domain.Models;
-using MAVN.Service.AuditLogs.Domain.Models.Enums;
 
 namespace MAVN.Service.AuditLogs.MsSqlRepositories.Entities
 {
@@ -31,7 +30,7 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories.Entities
 
         [Required]
         [Column("action_type")]
-        public ActionType ActionType { get; set; }
+        public string ActionType { get; set; }
 
         public static AuditLogEntity Create(AuditLog model)
         {

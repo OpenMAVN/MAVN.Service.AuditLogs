@@ -1,5 +1,4 @@
 ﻿using System;
-using MAVN.Service.AuditLogs.Client.Models.Enums;
 
 namespace MAVN.Service.AuditLogs.Client.Models.Requests
 {
@@ -24,6 +23,6 @@ namespace MAVN.Service.AuditLogs.Client.Models.Requests
         /// <summary>
         /// Action type used for filtering
         /// </summary>
-        public ActionType?  ActionType { get; set; }
+        public string  ActionType { get; set; }
     }
 }
