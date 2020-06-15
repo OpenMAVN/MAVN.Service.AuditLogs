@@ -37,7 +37,8 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories.Repositories
                 var query = context.AuditLogs.AsNoTracking();
 
                 if (fromDate.HasValue && toDate.HasValue)
-                    query = query.Where(x => x.Timestamp >= fromDate.Value && x.Timestamp <= toDate.Value);
+                    query = query.Where(x => x.Date >= fromDate.Value && x.Timestamp >= fromDate.Value
+                                                                      && x.Date <= toDate.Value && x.Timestamp <= toDate.Value);
 
                 if (adminId.HasValue)
                     query = query.Where(x => x.AdminUserId == adminId.Value);

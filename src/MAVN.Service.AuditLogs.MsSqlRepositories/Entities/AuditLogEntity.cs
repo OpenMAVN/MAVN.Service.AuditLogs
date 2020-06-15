@@ -26,6 +26,10 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories.Entities
         public DateTime Timestamp { get; set; }
 
         [Required]
+        [Column("date")]
+        public DateTime Date { get; set; }
+
+        [Required]
         [Column("action_type")]
         public ActionType ActionType { get; set; }
 
@@ -37,6 +41,7 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories.Entities
                 ActionContextJson = model.ActionContextJson,
                 ActionType = model.ActionType,
                 Timestamp = model.Timestamp,
+                Date = model.Timestamp.Date,
             };
         }
     }

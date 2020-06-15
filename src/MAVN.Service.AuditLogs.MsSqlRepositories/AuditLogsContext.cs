@@ -39,6 +39,7 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories
         {
             modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.ActionType).IsUnique(false);
             modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.AdminUserId).IsUnique(false);
+            modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.Date).IsUnique(false);
         }
     }
 }
