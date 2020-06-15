@@ -13,9 +13,9 @@ env:
   
   CLIENT_PROJECT: ./client/MAVN.Service.AuditLogs.Client/MAVN.Service.AuditLogs.Client.csproj
   CONTRACT_PROJECT: ./contract/MAVN.Service.AuditLogs.Contract/MAVN.Service.AuditLogs.Contract.csproj
-  JOB_DOCKER_IMAGE: AuditLogs-job
+  JOB_DOCKER_IMAGE: audit-logs-job
   JOB_PROJECT: ./src/MAVN.Job.AuditLogs/MAVN.Job.AuditLogs.csproj
-  SERVICE_DOCKER_IMAGE: AuditLogs-service # this template value must be fixed in most cases
+  SERVICE_DOCKER_IMAGE: audit-logs-service # this template value must be fixed in most cases
   SERVICE_PROJECT: ./src/MAVN.Service.AuditLogs/MAVN.Service.AuditLogs.csproj
     
   
