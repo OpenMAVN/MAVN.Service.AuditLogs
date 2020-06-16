@@ -7,7 +7,6 @@ using MAVN.Service.AuditLogs.Client;
 using MAVN.Service.AuditLogs.Client.Models.Requests;
 using MAVN.Service.AuditLogs.Client.Models.Responses;
 using MAVN.Service.AuditLogs.Domain.Models;
-using MAVN.Service.AuditLogs.Domain.Models.Enums;
 using MAVN.Service.AuditLogs.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,7 +33,7 @@ namespace MAVN.Service.AuditLogs.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<GetAuditLogsResponse> GetAuditLogsAsync([FromQuery] GetAuditLogsRequest request)
         {
-            var result = await _auditLogsService.GetListAsync(request.AdminId, (ActionType?)request.ActionType, request.FromDate,
+            var result = await _auditLogsService.GetListAsync(request.AdminId, request.ActionType, request.FromDate,
                 request.ToDate, request.CurrentPage, request.PageSize);
 
             return new GetAuditLogsResponse

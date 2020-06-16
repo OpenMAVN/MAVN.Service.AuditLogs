@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using MAVN.Service.AuditLogs.Client.Models.Enums;
 
 namespace MAVN.Service.AuditLogs.Client.Models.Requests
 {
@@ -15,7 +14,7 @@ namespace MAVN.Service.AuditLogs.Client.Models.Requests
         [Required]
         public Guid AdminUserId { get; set; }
         /// <summary>
-        /// Action contex in json format
+        /// Action context in json format
         /// </summary>
         public string ActionContextJson { get; set; }
         /// <summary>
@@ -27,6 +26,6 @@ namespace MAVN.Service.AuditLogs.Client.Models.Requests
         /// Action type
         /// </summary>
         [Required]
-        public ActionType ActionType { get; set; }
+        public string ActionType { get; set; }
     }
 }

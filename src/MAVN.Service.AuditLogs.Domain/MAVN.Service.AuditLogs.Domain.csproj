@@ -6,4 +6,7 @@
   <ItemGroup>
     <PackageReference Include="Lykke.Common" Version="7.5.0" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Enums\" />
+  </ItemGroup>
 </Project>
