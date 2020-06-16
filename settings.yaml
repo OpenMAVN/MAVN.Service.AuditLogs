@@ -9,7 +9,7 @@ AuditLogsService:
   Rabbit:
     Subscribers:
       ConnectionString:
-        settings-key: UserManagmentRabbitMQ
+        settings-key: UserManagementRabbitMQ
         types:
           - RabbitMq
 SlackNotifications:
