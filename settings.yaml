@@ -7,11 +7,6 @@ AuditLogsService:
     SqlDbConnString:
       settings-key: AuditLogsService-SqlDbConnString
   Rabbit:
-    Publishers:
-      ConnectionString:
-        settings-key: UserManagmentRabbitMQ
-        types:
-          - RabbitMq
     Subscribers:
       ConnectionString:
         settings-key: UserManagmentRabbitMQ

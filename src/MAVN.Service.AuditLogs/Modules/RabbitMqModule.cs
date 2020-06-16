@@ -24,15 +24,7 @@ namespace MAVN.Service.AuditLogs.Modules
 
         protected override void Load(ContainerBuilder builder)
         {
-            // NOTE: Do not register entire settings in container, pass necessary settings to services which requires them
-
-            RegisterRabbitMqPublishers(builder);
-
             RegisterRabbitMqSubscribers(builder);
-        }
-
-        private void RegisterRabbitMqPublishers(ContainerBuilder builder)
-        {
         }
 
         private void RegisterRabbitMqSubscribers(ContainerBuilder builder)
