@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using JetBrains.Annotations;
-using Lykke.Common.MsSql;
 using Lykke.SettingsReader;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.AuditLogs.Domain.Repositories;
 using MAVN.Service.AuditLogs.MsSqlRepositories;
 using MAVN.Service.AuditLogs.MsSqlRepositories.Repositories;
@@ -25,7 +25,7 @@ namespace MAVN.Service.AuditLogs.Modules
                 .As<IAuditLogsRepository>()
                 .SingleInstance();
 
-            builder.RegisterMsSql(
+            builder.RegisterPostgreSQL(
                 _connectionString,
                 connString => new AuditLogsContext(connString, false),
                 dbConn => new AuditLogsContext(dbConn));

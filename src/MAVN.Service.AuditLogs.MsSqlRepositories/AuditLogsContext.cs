@@ -1,12 +1,12 @@
 ﻿using System.Data.Common;
 using JetBrains.Annotations;
-using Lykke.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.AuditLogs.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MAVN.Service.AuditLogs.MsSqlRepositories
 {
-    public class AuditLogsContext : MsSqlContext
+    public class AuditLogsContext : PostgreSQLContext
     {
         private const string Schema = "audit_logs";
 
@@ -35,7 +35,7 @@ namespace MAVN.Service.AuditLogs.MsSqlRepositories
         {
         }
 
-        protected override void OnLykkeModelCreating(ModelBuilder modelBuilder)
+        protected override void OnMAVNModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.ActionType).IsUnique(false);
             modelBuilder.Entity<AuditLogEntity>().HasIndex(x => x.AdminUserId).IsUnique(false);
