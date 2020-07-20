@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Lykke.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.AuditLogs.Domain.Models;
 using MAVN.Service.AuditLogs.Domain.Repositories;
 using MAVN.Service.AuditLogs.MsSqlRepositories.Entities;
